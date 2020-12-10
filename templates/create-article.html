@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Анкета
+{% endblock %}
+
+{% block body %}
+
+<div class = 'container'>
+
+    <body class="bg-light">
+    <div class="container">
+  <div class="py-5 text-center">
+    <h2> Заполните анкету для исследования </h2>
+    <form method="post">
+        <input type="text" name="title" id="title" class="form-control" placeholder="Введите ваше имя"><br>
+        <textarea name="intro" id="intro" class="form-control" placeholder="Краткое интро к посту"></textarea><br>
+        <textarea name="text" id="text" class="form-control" placeholder="Напишите пост здесь!!!"></textarea><br>
+        <button class="btn btn-primary btn-lg btn-block" type="submit"> <a> Отправить ответ</a> </button>
+
+    </form>
+
+  </div>
+
+
+</body>
+
+{% endblock %}

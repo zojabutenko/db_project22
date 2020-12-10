@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Анкета
+{% endblock %}
+
+{% block body %}
+
+<div class = 'container'>
+
+    <body class="bg-light">
+    <div class="container">
+  <div class="py-5 text-center">
+    <h2> Заполните анкету для исследования </h2>
+    <h4><p class="lead"> Выборка взята из топа яндекс музыки  </p></h4>
+
+  </div>
+
+    </div>
+    <div class="col-md-8 order-md-1">
+      <h4 class="mb-3"> Заполните информацию (имя и фамилию можно не заполнять) </h4>
+      <form class="needs-validation" novalidate="">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="firstName"> Имя </label>
+            <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+            <div class="invalid-feedback">
+              Valid first name is required.
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="lastName"> Фамилия </label>
+            <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+            <div class="invalid-feedback">
+              Valid last name is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-5 mb-3">
+            <label for="country"> Возраст </label>
+            <div class="custom-control custom-radio">
+                <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
+                <label class="custom-control-label" for="credit"> <18 </label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required="">
+                <label class="custom-control-label" for="debit"> 18-24 </label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required="">
+                <label class="custom-control-label" for="paypal"> 24-30 </label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required="">
+                <label class="custom-control-label" for="paypal"> 30< </label>
+          </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="state">Пол</label>
+            <select class="custom-select d-block w-100" id="state" required="">
+              <option value="">Choose...</option>
+              <option>Муж.</option>
+              <option>Жен.</option>
+              <option>Другое...</option>
+            </select>
+            <div class="invalid-feedback">
+              Please provide a valid state.
+            </div>
+          </div>
+        </div>
+
+        <hr class="mb-4">
+        <h4 class="mb-3"> Кого из нижеперечисленных исполнителей, вы слушаете </h4>
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="SLAVA MARLOW">
+          <label class="custom-control-label" for="SLAVA MARLOW"> SLAVA MARLOW </label>
+        </div>
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="Dabro">
+          <label class="custom-control-label" for="Dabro">Dabro</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="Rauf&Faik">
+          <label class="custom-control-label" for="Rauf&Faik">Rauf&Faik</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="Niletto">
+          <label class="custom-control-label" for="Niletto">Niletto</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="Dj Smash">
+          <label class="custom-control-label" for="Dj Smash">Dj Smash</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="Ramil'">
+          <label class="custom-control-label" for="Ramil'">Ramil'</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="Клава Кока">
+          <label class="custom-control-label" for="Клава Кока">Клава Кока</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="Би-2">
+          <label class="custom-control-label" for="Би-2">Би-2</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="MORGENSHTERN">
+          <label class="custom-control-label" for="MORGENSHTERN">MORGENSHTERN</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="Тимати">
+          <label class="custom-control-label" for="Тимати">Тимати</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="NONE">
+          <label class="custom-control-label" for="NONE"> Никого, все клоуны </label>
+        </div>
+        <hr class="mb-4">
+
+        <hr class="mb-4">
+        <button class="btn btn-primary btn-lg btn-block" type="submit"> <a type='button' class="p-2 text-light" href="/ty"> Отправить ответ</a> </button>
+      </form>
+    </div>
+  </div>
+
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">© 2020 ФиКЛ продакшн</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="/privacy">Политика приватности</a></li>
+    </ul>
+  </footer>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+        <script src="form-validation.js"></script>
+
+</body>
+
+{% endblock %}
