@@ -4,7 +4,7 @@ from datetime import datetime
 from define_tables import Post, Author, Likes, PostText, Topics
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/zoiabutenko/Desktop/db_project22/blog.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/tarasandrushko/Desktop/db_project22/blog.db'
 db = SQLAlchemy(app)
 
 
@@ -27,22 +27,24 @@ def about():
 def create_post():
     if request.method == 'POST':
         text = request.form['text']
-
-        post = Post(text=text)
-
-        try:
-            db.session.add(post)
-            db.session.commit()
-            return redirect('/ty')
-        except:
-            return "При записи ответа произошла ошибка"
+        username = 'aaa' # пока что, потом это будет вводить юзер в форму
+        post = Post(text=text, author_username=username)
+        db.session.add(post)
+        db.session.commit()
+        return redirect('/ty')
+        # try:
+        #     db.session.add(post)
+        #     db.session.commit()
+        #     return redirect('/ty')
+        # except:
+        #     return "При записи ответа произошла ошибка"
     else:
         return render_template('create-article.html')
 
 
 @app.route('/posts')
 def posts():
-    posts = Post.query.order_by(Post.post_time.desc()).all()
+    posts = Post.query.order_by(Post.date.desc()).all()
     return render_template('posts.html', posts=posts)
 
 
