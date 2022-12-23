@@ -8,7 +8,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/zoiabutenko/Desktop/db
 db = SQLAlchemy(app)
 
 
-class Article(db.Model):
+class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.Text, nullable=False)
     intro = db.Column(db.Text, nullable=False)
@@ -16,7 +16,7 @@ class Article(db.Model):
     date = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __repr__(self):
-        return '<Article %r>' % self.id
+        return '<Post %r>' % self.id
 
 
 @app.before_first_request
@@ -35,37 +35,37 @@ def about():
 
 
 @app.route('/create-article', methods=['POST', 'GET'])
-def create_article():
+def create_post():
     if request.method == 'POST':
         title = request.form['title']
         intro = request.form['intro']
         text = request.form['text']
 
-        article = Article(title=title, intro=intro, text=text)
+        post = Post(title=title, intro=intro, text=text)
 
-        db.session.add(article)
-        db.session.commit()
-        return redirect('/ty')
-        # try:
-        #     db.session.add(article)
-        #     db.session.commit()
-        #     return redirect('/ty')
-        # except:
-        #     return "При записи ответа произошла ошибка"
+        # db.session.add(post)
+        # db.session.commit()
+        # return redirect('/ty')
+        try:
+            db.session.add(post)
+            db.session.commit()
+            return redirect('/ty')
+        except:
+            return "При записи ответа произошла ошибка"
     else:
         return render_template('create-article.html')
 
 
 @app.route('/posts')
 def posts():
-    articles = Article.query.order_by(Article.date.desc()).all()
-    return render_template('posts.html', articles=articles)
+    posts = Post.query.order_by(Post.date.desc()).all()
+    return render_template('posts.html', posts=posts)
 
 
 @app.route('/posts/<int:id>')
 def posts_detail(id):
-    article = Article.query.get(id)
-    return render_template('post_detail.html', article=article)
+    post = Post.query.get(id)
+    return render_template('post_detail.html', post=post)
 
 
 @app.route('/ty')
