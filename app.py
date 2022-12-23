@@ -10,8 +10,6 @@ db = SQLAlchemy(app)
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.Text, nullable=False)
-    intro = db.Column(db.Text, nullable=False)
     text = db.Column(db.Text, nullable=False)
     date = db.Column(db.DateTime, default=datetime.utcnow)
 
@@ -37,15 +35,10 @@ def about():
 @app.route('/create-article', methods=['POST', 'GET'])
 def create_post():
     if request.method == 'POST':
-        title = request.form['title']
-        intro = request.form['intro']
         text = request.form['text']
 
-        post = Post(title=title, intro=intro, text=text)
+        post = Post(text=text)
 
-        # db.session.add(post)
-        # db.session.commit()
-        # return redirect('/ty')
         try:
             db.session.add(post)
             db.session.commit()
