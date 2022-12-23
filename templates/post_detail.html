@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-{{ article.title }}
+{{ post.title }}
 {% endblock %}
 
 {% block body %}
@@ -11,10 +11,10 @@
     <body class="bg-light">
     <div class="container">
 
-    <h2> {{ article.title }} </h2>
+    <h2> {{ post.title }} </h2>
     <div class="alert alert-info">
-        <p>{{ article.text }}</p>
-        <p><b> Дата: {{ article.date.date() }}</b></p>
+        <p>{{ post.text }}</p>
+        <p><b> Дата: {{ post.date.date() }}</b></p>
     </div>
 
 
