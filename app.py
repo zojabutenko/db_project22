@@ -1,20 +1,12 @@
 from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-
+from define_tables import Post, Author, Likes, PostText, Topics
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/zoiabutenko/Desktop/db_project22/blog.db'
 db = SQLAlchemy(app)
 
-
-class Post(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    text = db.Column(db.Text, nullable=False)
-    date = db.Column(db.DateTime, default=datetime.utcnow)
-
-    def __repr__(self):
-        return '<Post %r>' % self.id
 
 
 @app.before_first_request
@@ -51,7 +43,7 @@ def create_post():
 
 @app.route('/posts')
 def posts():
-    posts = Post.query.order_by(Post.date.desc()).all()
+    posts = Post.query.order_by(Post.post_time.desc()).all()
     return render_template('posts.html', posts=posts)
 
 
