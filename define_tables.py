@@ -4,7 +4,7 @@ from app import db, datetime
 class Post(db.Model):
     # main table: info about posts
     id = db.Column(db.Integer, primary_key=True)
-    author_id = db.Column(db.Integer, primary_key=True)
+    author_username = db.Column(db.String, primary_key=True)
     text = db.Column(db.Text, nullable=False)
     post_time = db.Column(db.DateTime, default=datetime.utcnow)
 
@@ -13,10 +13,9 @@ class Post(db.Model):
 
 
 class Author(db.Model):
-    # data about an author, linked to the main table by author_id
-    author_id = db.Column(db.Integer, db.ForeignKey('Post.author_id'), nullable=False)
+    # data about an author, linked to the main table by username
     num_posts = db.column(db.Integer, primart_key=True)     # number of publications from this author
-    username = db.Column(db.Text, primary_key=True)
+    username = db.Column(db.String, db.ForeignKey('Post.author_id'), nullable=False)
     liked = db.Column(db.Text, primary_key=True)    # list of publications that the author has liked
     country = db.Column(db.Text, primary_key=True)
     age = db.Column(db.Integer, primary_key=True)
