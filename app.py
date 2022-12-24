@@ -8,9 +8,26 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/tarasandrushko/Desktop
 db = SQLAlchemy(app)
 
 
+
 @app.before_first_request
 def create_tables():
     db.create_all()
+    topic_dict = {
+        10: 'Ни одна из тем',
+        1: 'Музыка',
+        2: 'Технологии',
+        3: 'Спорт',
+        4: 'Наука',
+        5: 'Искусство',
+        6: 'Экология',
+        7: 'Политика',
+        8: 'Экономика',
+        9: 'Программирование'
+    }
+    for k, v in topic_dict.items():
+        new_entry = Topics(topic_id=k, topic_name=v)
+        db.session.add(new_entry)
+        db.session.commit()
 
 
 class Post(db.Model):
@@ -58,7 +75,9 @@ class Topics(db.Model):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    posts = Post.query.order_by(Post.date.desc()).all()
+    return render_template('index.html', posts=posts)
+
 
 
 @app.route('/about')
@@ -70,7 +89,7 @@ def about():
 def create_post():
     if request.method == 'POST':
         text = request.form['text']
-        username = 'aaa' # пока что, потом это будет вводить юзер в форму
+        username = request.form['username']
         post = Post(text=text, author_username=username)
         db.session.add(post)
         db.session.commit()

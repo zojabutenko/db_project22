@@ -11,14 +11,13 @@
     <body class="bg-light">
     <div class="container">
   <div class="py-5 text-center">
-    <h2> Заполните анкету для исследования </h2>
-    <h4><p class="lead"> Выборка взята из топа яндекс музыки  </p></h4>
+    <h2> Профиль</h2>
 
   </div>
 
     </div>
-    <div class="col-md-8 order-md-1">
-      <h4 class="mb-3"> Заполните информацию (имя и фамилию можно не заполнять) </h4>
+    <div class="col-md-8 order-md-1 mx-auto">
+      <h4 class="mb-3"> Заполните информацию о себе </h4>
       <form class="needs-validation" novalidate="">
         <div class="row">
           <div class="col-md-6 mb-3">
@@ -38,26 +37,14 @@
         </div>
 
         <div class="row">
-          <div class="col-md-5 mb-3">
-            <label for="country"> Возраст </label>
-            <div class="custom-control custom-radio">
-                <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
-                <label class="custom-control-label" for="credit"> <18 </label>
+          <div class="col-md-3 mb-3">
+            <label for="firstName"> Возраст </label>
+            <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+            <div class="invalid-feedback">
+              Valid first name is required.
             </div>
-            <div class="custom-control custom-radio">
-                <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required="">
-                <label class="custom-control-label" for="debit"> 18-24 </label>
-            </div>
-            <div class="custom-control custom-radio">
-                <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required="">
-                <label class="custom-control-label" for="paypal"> 24-30 </label>
-            </div>
-            <div class="custom-control custom-radio">
-                <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required="">
-                <label class="custom-control-label" for="paypal"> 30< </label>
           </div>
-          </div>
-          <div class="col-md-4 mb-3">
+          <div class="col-md-3 mb-3">
             <label for="state">Пол</label>
             <select class="custom-select d-block w-100" id="state" required="">
               <option value="">Choose...</option>
@@ -69,53 +56,56 @@
               Please provide a valid state.
             </div>
           </div>
+          <div class="col-md-6 mb-3">
+            <label for="firstName"> Username </label>
+            <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+            <div class="invalid-feedback">
+              Valid first name is required.
+            </div>
+          </div>
         </div>
 
         <hr class="mb-4">
-        <h4 class="mb-3"> Кого из нижеперечисленных исполнителей, вы слушаете </h4>
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="SLAVA MARLOW">
-          <label class="custom-control-label" for="SLAVA MARLOW"> SLAVA MARLOW </label>
+        <h4 class="mb-3"> Выберите тему, интересную для вас </h4>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="1">
+          <label class="form-check-label" for="flexRadioDefault1">Музыка</label>
         </div>
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="Dabro">
-          <label class="custom-control-label" for="Dabro">Dabro</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="2">
+          <label class="form-check-label" for="flexRadioDefault1">Технологии</label>
         </div>
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="Rauf&Faik">
-          <label class="custom-control-label" for="Rauf&Faik">Rauf&Faik</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="3">
+          <label class="form-check-label" for="flexRadioDefault1">Спорт</label>
         </div>
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="Niletto">
-          <label class="custom-control-label" for="Niletto">Niletto</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="4">
+          <label class="form-check-label" for="flexRadioDefault1">Наука</label>
         </div>
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="Dj Smash">
-          <label class="custom-control-label" for="Dj Smash">Dj Smash</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="5">
+          <label class="form-check-label" for="flexRadioDefault1">Искусство</label>
         </div>
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="Ramil'">
-          <label class="custom-control-label" for="Ramil'">Ramil'</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="6">
+          <label class="form-check-label" for="flexRadioDefault1">Экология</label>
         </div>
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="Клава Кока">
-          <label class="custom-control-label" for="Клава Кока">Клава Кока</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="7">
+          <label class="form-check-label" for="flexRadioDefault1">Политика</label>
         </div>
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="Би-2">
-          <label class="custom-control-label" for="Би-2">Би-2</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="8">
+          <label class="form-check-label" for="flexRadioDefault1">Экономика</label>
         </div>
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="MORGENSHTERN">
-          <label class="custom-control-label" for="MORGENSHTERN">MORGENSHTERN</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="9">
+          <label class="form-check-label" for="flexRadioDefault1">Программирование</label>
         </div>
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="Тимати">
-          <label class="custom-control-label" for="Тимати">Тимати</label>
-        </div>
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="NONE">
-          <label class="custom-control-label" for="NONE"> Никого, все клоуны </label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="10">
+          <label class="form-check-label" for="flexRadioDefault1">Ни одна из тем</label>
         </div>
         <hr class="mb-4">
 
@@ -126,7 +116,7 @@
   </div>
 
   <footer class="my-5 pt-5 text-muted text-center text-small">
-    <p class="mb-1">© 2020 ФиКЛ продакшн</p>
+    <p class="mb-1">© </p>
     <ul class="list-inline">
       <li class="list-inline-item"><a href="/privacy">Политика приватности</a></li>
     </ul>
