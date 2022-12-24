@@ -17,6 +17,7 @@
                 <h2>{{ el.text }}</h2>
                 <p><b> Дата создания поста: {{ el.date.date() }}</b></p>
 {#                <a href="/posts/{{ el.id }}" class="btn btn-warning"> Детальнее </a>#}
+                <a href="/posts/{{ el.id }}" class="btn btn-warning"> Удалить пост </a>
             </div>
             {% endfor %}
         </div>
